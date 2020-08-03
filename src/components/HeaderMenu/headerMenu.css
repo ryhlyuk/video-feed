@@ -1,0 +1,42 @@
+.header-wrapper {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 64px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    border: none !important;
+}
+
+.menu-item {
+    height: 60px !important;
+    line-height: 60px !important;
+    text-align: center;
+}
+
+.user-profile {
+    height: 60px;
+    margin: auto;
+}
+
+.collapsed-button {
+    display: none !important;
+}
+
+@media all and (max-width: 740px) {
+    .collapsed-button {
+        display: block !important;
+        margin: auto;
+    }
+    .menu-expanded {
+        flex-direction: column;
+        height: 373px;
+        z-index: 1;
+        box-shadow: 0 0 10px darkslategrey !important;
+        border-radius: 8px;
+    }
+}
