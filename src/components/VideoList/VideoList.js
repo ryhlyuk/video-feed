@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Spin } from "antd";
 import InfiniteScroll from 'react-infinite-scroller';
 
-import VideoItem from "../VideoItem/VideoItem";
+import VideoItem from "./VideoItem/VideoItem";
 
 import './videoList.css';
 
@@ -41,8 +41,7 @@ const VideoList = ({getVideos, videos, hasMore}) => {
             hasMore={!loading && videoList.hasMore}
             className="video-list-wrapper"
             loader={
-                videoList.hasMore
-                    && loading
+                    loading
                     && <div className="demo-loading-container">
                     <Spin />
                 </div>

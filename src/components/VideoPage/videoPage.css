@@ -1,0 +1,25 @@
+.demo-infinite-container {
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    overflow: auto;
+    padding: 8px 24px;
+    height: 300px;
+}
+.demo-loading-container {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+.video-list-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+@media all and (max-width: 740px) {
+    .video-list-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

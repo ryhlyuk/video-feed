@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import { format, fromUnixTime } from 'date-fns';
 import './videoItem.css';
-import { ASSETS_URL } from "../../constants/config";
+import { ASSETS_URL } from "../../../constants/config";
+import PlayCircleOutlined from "@ant-design/icons/lib/icons/PlayCircleOutlined";
 
 const getMinutesAndSecondsFromSeconds = totalSeconds => {
     const hours = Math.floor(totalSeconds / 3600);
@@ -30,7 +32,7 @@ const numberFormatter = number => {
     } else if (number <= 999) {
         return number;
     }
-}
+};
 
 const getSourceIcon = source => {
     switch (source) {
@@ -42,9 +44,23 @@ const getSourceIcon = source => {
 };
 
 const VideoItem = ({ video, iterateKey }) => {
+    const history = useHistory();
+
+    const navigateToVideoItem = () => {
+        const { videoId } = video;
+        history.push(`/video/${videoId}`);
+    };
+
     return (
-        <div className="video-item-wrapper" key={iterateKey}>
-            <div className="video-item-video-cover"><img src={video.cover} alt="Cover for the video"/></div>
+        <div className="video-item-wrapper" key={iterateKey} >
+            <div className="video-item-video-cover">
+                <img src={video.cover} alt="Cover for the video"/>
+                {
+                    video.source === 'playbuzz' && <div className="video-navigate-button-wrapper">
+                        <PlayCircleOutlined onClick={navigateToVideoItem}/>
+                    </div>
+                }
+            </div>
             <div className="video-item-video-title">{video.title || NoData()}</div>
             <div className="video-item-date-views-wrapper">
                 <div className="video-item-date-wrapper">
