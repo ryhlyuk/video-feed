@@ -56,7 +56,7 @@ const VideoItem = ({ video, iterateKey }) => {
             <div className="video-item-video-cover">
                 <img src={video.cover} alt="Cover for the video"/>
                 {
-                    video.source === 'playbuzz' && <div className="video-navigate-button-wrapper">
+                    video.source && video.source === 'playbuzz' && <div className="video-navigate-button-wrapper">
                         <PlayCircleOutlined onClick={navigateToVideoItem}/>
                     </div>
                 }
